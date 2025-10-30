@@ -11,7 +11,7 @@ A simple shopping cart application built with React.js that allows users to brow
 ### Installation
 1. Clone the repository
 
-git clone 
+git clone `https://github.com/Mjansitha03/addtocart.git`.
 
 
 2. Navigate to project directory
