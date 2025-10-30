@@ -133,11 +133,12 @@ button:hover {
 }
 .modal-section {
   background: rgb(222, 255, 218);
-  padding: 25px;
+  padding: 20px 25px;
   border-radius: 12px;
   width: 400px;
   max-height: 80vh;
   overflow-y: auto;
+  margin-top: 55px;
 }
 .modal-section h2 {
   color: #388e3c;
