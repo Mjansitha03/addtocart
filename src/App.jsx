@@ -15,33 +15,24 @@ const App = () => {
   // to show loading spinner
   const [loading, setLoading] = useState(true);
 
-  // load products and cart when page starts
+  // load products when page starts
   useEffect(() => {
     fetchProducts();
-
-    // Load saved cart from localStorage
-    const savedCart = localStorage.getItem("cartItems");
-    if (savedCart) {
-      setCartItems(JSON.parse(savedCart));
-    }
   }, []);
 
   // get products from API
   const fetchProducts = async () => {
     try {
       const response = await axios.get("https://fakestoreapi.com/products");
+      // store products in state
       setProducts(response.data);
     } catch (error) {
       console.log("Error fetching products:", error);
     } finally {
+      // stop loading after data is fetched
       setLoading(false);
     }
   };
-
-  // save cart in localStorage whenever it changes
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
 
   // add item to cart
   const handleAddToCart = (product) => {
@@ -58,8 +49,7 @@ const App = () => {
 
   // remove item from cart
   const handleRemoveFromCart = (id) => {
-    const updatedCart = cartItems.filter((item) => item.id !== id);
-    setCartItems(updatedCart);
+    setCartItems(cartItems.filter((item) => item.id !== id));
   };
 
   // show loading icon while data loads
@@ -103,4 +93,3 @@ const App = () => {
 };
 
 export default App;
-
